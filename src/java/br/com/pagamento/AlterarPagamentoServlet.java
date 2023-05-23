@@ -28,11 +28,8 @@ public class AlterarPagamentoServlet extends HttpServlet{
             String id_pagamentos = request.getParameter("id_pagamentos");
             String valor = request.getParameter("valor");
             String data_pagamento = request.getParameter("data_pagamento");
-            String pagante = request.getParameter("pagante");
-            String recebedor = request.getParameter("recebedor");
             String descricao = request.getParameter("descricao");
             String inquilino = request.getParameter("inquilino");
-            String numero_apartamento = request.getParameter("numero_apartamento");
             
             Connection con;
             try {
@@ -43,11 +40,8 @@ public class AlterarPagamentoServlet extends HttpServlet{
                 
                 p.setValor(Double.valueOf(valor));
                 p.setData_pagamento(data_pagamento);
-                p.setPagante(pagante);
-                p.setRecebedor(recebedor);
                 p.setDescricao(descricao);
                 p.setInquilino(inquilino);
-                p.setNumero_apartamento(numero_apartamento);
                 p.setId_pagamentos(Integer.valueOf(id_pagamentos));
 
                 PagamentoDAO dao = new PagamentoDAO(con);
@@ -55,11 +49,8 @@ public class AlterarPagamentoServlet extends HttpServlet{
                
                 request.setAttribute("valor", p.getValor());
                 request.setAttribute("data_pagamento", p.getData_pagamento());
-                request.setAttribute("pagante", p.getPagante());
-                request.setAttribute("recebedor", p.getRecebedor());
                 request.setAttribute("descricao", p.getDescricao());
                 request.setAttribute("inquilino", p.getInquilino());
-                request.setAttribute("numero_apartamento", p.getNumero_apartamento());
                 request.setAttribute("id_pagamentos", p.getId_pagamentos());
                 
                 request.getRequestDispatcher("gerenciarPagamentos.jsp").forward(request, response);

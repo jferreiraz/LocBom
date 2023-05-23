@@ -6,7 +6,6 @@ public class Endereco {
     private String cidade;
     private String bairro;
     private String endereco;
-    private String quantidadeApartamentos;
 
     public int getId_usuario() {
         return id_usuario;
@@ -46,14 +45,6 @@ public class Endereco {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-
-    public String getQuantidadeApartamentos() {
-        return quantidadeApartamentos;
-    }
-
-    public void setQuantidadeApartamentos(String quantidadeApartamentos) {
-        this.quantidadeApartamentos = quantidadeApartamentos;
     }
 
 }

@@ -20,10 +20,6 @@
                     alert("Campo data de pagamento não informado");
                     return false;
                 }
-                if (document.formAlterarPagamento.pagante.value === "") {
-                    alert("Campo pagante não informado");
-                    return false;
-                }
 
                 document.formAlterarPagamento.submit();
 
@@ -50,12 +46,11 @@
                 int id = 0;
                 String valor = "";
                 String data_pagamento = "";
-                String pagante = "";
-                String recebedor = "";
                 String descricao = "";
                 String inquilino = "";
-                String numero_apartamento = "";
-                String dbId = request.getParameter("id"); 
+                String inquilinoAntigo = "";
+                String dbId = request.getParameter("id");
+                String sql = "select * from inquilinos";
 
                 Connection conn = CriarConexao.getConexao();
                 Statement stmt = conn.createStatement();
@@ -65,11 +60,8 @@
                     id = rs.getInt("id_pagamentos");
                     valor = rs.getString("valor");
                     data_pagamento = rs.getString("data_pagamento");
-                    pagante = rs.getString("pagante");
-                    recebedor = rs.getString("recebedor");
                     descricao = rs.getString("descricao");
-                    inquilino = rs.getString("inquilino");
-                    numero_apartamento = rs.getString("numero_apartamento");
+                    inquilinoAntigo = rs.getString("inquilino");
                 }
 
             %>
@@ -87,11 +79,16 @@
                         <tr><td>Id</td><td><input type="text" class="id_border" name="id_pagamentos" value="<%= id%>" readonly></td><td><%= id%></td></tr>
                         <tr><td>Valor</td><td><input type="text" name="valor" value="<%= valor%>"></td><td><%= valor%></td></tr>
                         <tr><td>Data de pagamento</td><td><input type="date" name="data_pagamento" value="<%= data_pagamento%>"></td><td><%= data_pagamento%></td></tr>
-                        <tr><td>Pagante</td><td><input type="text" name="pagante" value="<%= pagante%>"></td><td><%= pagante%></td></tr>
-                        <tr><td>Recebedor</td><td><input type="text" name="recebedor" value="<%= recebedor%>"></td><td><%= recebedor%></td></tr>
                         <tr><td>Descrição</td><td><input type="text" name="descricao" value="<%= descricao%>"></td><td><%= descricao%></td></tr>
-                        <tr><td>Inquilino</td><td><input type="text" name="inquilino" value="<%= inquilino%>"></td><td><%= inquilino%></td></tr>
-                        <tr><td>Número de apartamentos</td><td><input type="text" name="numero_apartamento" value="<%= numero_apartamento%>"></td><td><%= numero_apartamento%></td></tr>
+                        <tr><td>Inquilino</td><td><select name="inquilino" id="inquilino_cad">
+                                    <%
+                                        ResultSet rs2 = stmt.executeQuery(sql);
+                                        while (rs2.next()) {
+                                            inquilino = rs2.getString("nome_inquilino");
+                                    %>
+                                    <option  value="<%=inquilino%>" ><%=inquilino%></option>
+                                    <% }%>
+                                </select><td><%= inquilinoAntigo%></td></tr>
                         <tr><td colspan="3"><input class="btn_table" type="button" value="Alterar" onclick="validarAlteracao()"></td></tr>
                     </tbody>
                 </table>

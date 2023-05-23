@@ -33,7 +33,7 @@
             <table width="700px" border="1" cellspacing="0">
                 <thead>
                     <tr>
-                        <th colspan="2"><strong>Cidade</strong></th>
+                        <th colspan="2"><strong>Estado</strong></th>
                         <th colspan="2"><strong>Bairro</strong></th>
                         <th colspan="2"><strong>Endereço</strong></th>
 
@@ -48,16 +48,14 @@
                         String cidade = "";
                         String bairro = "";
                         String dbEndereco = "";
-                        int quantidadeApartamentos = 0;
 
                         String idUsuario = (String) session.getAttribute("id_usuario");
 
-                        String sql = "SELECT * FROM endereco WHERE id_usuario = ? ";
+                        String sql = "SELECT * FROM endereco where id_usuario = \'" + idUsuario + "\'  ";
 
                         Connection con;
                         con = CriarConexao.getConexao();
                         PreparedStatement stmt = con.prepareStatement(sql);
-                        stmt.setString(1, idUsuario);
                         ResultSet rs = stmt.executeQuery();
 
                         while (rs.next()) {
@@ -65,7 +63,6 @@
                             cidade = rs.getString("cidade");
                             bairro = rs.getString("bairro");
                             dbEndereco = rs.getString("endereco");
-                            quantidadeApartamentos = rs.getInt("quantidade_apartamentos");
 
                     %>
 
@@ -75,13 +72,13 @@
                         <td colspan="2"><%=bairro%></td>
                         <td colspan="2"><%=dbEndereco%></td>
 
-                        <td><a href="../viewInquilinos/gerenciarInquilinos.jsp?dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/estoque.png"></a></td>
+                        <td><a href="../viewReformas/gerenciarReformas.jsp?dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/estoque.png"></a></td>
                         
                         <td><a href="alterarEnderecos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/editar-arquivo.png"></a>
                             <a href="deletarEnderecos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/botao-apagar.png"></a></td>
 
-                        <td><a href="../viewInquilinos/adicionarInquilinos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/adicionar-ficheiro.png"></a>
-                            <a href="../viewInquilinos/gerenciarInquilinos.jsp?dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/documento.png"></a></td>
+                        <td><a href="../viewInquilinos/adicionarInquilinos.jsp?dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/adicionar-ficheiro.png"></a>
+                            <a href="../viewInquilinos/gerenciarInquilinos.jsp?id=<%=id%>&dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/documento.png"></a></td>
 
                         
                     </tr>

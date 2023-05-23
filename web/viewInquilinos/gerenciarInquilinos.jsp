@@ -33,7 +33,7 @@
                     <tr>
                         <th><strong>Id</strong></th>
                         <th><strong>Nome do inquilino</strong></th>
-                        <th><strong>Quantidade de pessoas</strong></th>
+                        <th><strong>Apartamento</strong></th>
                         <th><strong>Data de entrada</strong></th>
                         <th><strong>Endereco</strong></th>
                         <th colspan="2"><strong>Alterações</strong></th>
@@ -45,22 +45,23 @@
                     <%
 
                         String dbEndereco = request.getParameter("dbEndereco");
+                        String idUsuario = (String) session.getAttribute("id_usuario");
 
                         if (dbEndereco != null) {
 
                             int id = 0;
                             String nome_inquilino = "";
-                            String quantidade_pessoas = "";
+                            String apartamento = "";
                             String data_entrada = "";
                             String endereco = "";
 
                             Connection conn = CriarConexao.getConexao();
                             Statement stmt = conn.createStatement();
-                            ResultSet rs = stmt.executeQuery("select * from inquilinos where endereco =\'" + dbEndereco + "\' ");
+                            ResultSet rs = stmt.executeQuery("select * from inquilinos where endereco =\'" + dbEndereco + "\' AND id_usuario = \'" + idUsuario + "\' ");
                             while (rs.next()) {
                                 id = rs.getInt("id_inquilinos");
                                 nome_inquilino = rs.getString("nome_inquilino");
-                                quantidade_pessoas = rs.getString("quantidade_pessoas");
+                                apartamento = rs.getString("apartamento");
                                 data_entrada = rs.getString("data_entrada");
                                 endereco = rs.getString("endereco");
 
@@ -69,7 +70,7 @@
                     <tr>
                         <td><%=id%></td>
                         <td><%=nome_inquilino%></td>
-                        <td><%=quantidade_pessoas%></td>
+                        <td><%=apartamento%></td>
                         <td><%=data_entrada%></td>
                         <td><%=endereco%></td>
                         <td><a href="alterarInquilinos.jsp?id=<%=id%>">Editar</a></td>
@@ -86,17 +87,17 @@
                     } else {
                         int id = 0;
                         String nome_inquilino = "";
-                        String quantidade_pessoas = "";
+                        String apartamento = "";
                         String data_entrada = "";
                         String endereco = "";
 
                         Connection conn = CriarConexao.getConexao();
                         Statement stmt = conn.createStatement();
-                        ResultSet rs = stmt.executeQuery("select * from inquilinos");
+                        ResultSet rs = stmt.executeQuery("select * from inquilinos where id_usuario = \'" + idUsuario + "\' ");
                         while (rs.next()) {
                             id = rs.getInt("id_inquilinos");
                             nome_inquilino = rs.getString("nome_inquilino");
-                            quantidade_pessoas = rs.getString("quantidade_pessoas");
+                            apartamento = rs.getString("apartamento");
                             data_entrada = rs.getString("data_entrada");
                             endereco = rs.getString("endereco");
                     %>
@@ -104,12 +105,12 @@
                     <tr>
                         <td><%=id%></td>
                         <td><%=nome_inquilino%></td>
-                        <td><%=quantidade_pessoas%></td>
+                        <td><%=apartamento%></td>
                         <td><%=data_entrada%></td>
                         <td><%=endereco%></td>
                         <td><a href="alterarInquilinos.jsp?id=<%=id%>">Editar</a></td>
                         <td><a href="deletarInquilinos.jsp?id=<%=id%>">Deletar</a></td>
-                        <td><a href="../viewPagamentos/adicionarPagamentos.jsp?id=<%=nome_inquilino%>">Adicionar</a></td>
+                        <td><a href="../viewPagamentos/adicionarPagamentos.jsp?dbInquilino=<%=nome_inquilino%>">Adicionar</a></td>
                         <td><a href="../viewPagamentos/gerenciarPagamentos.jsp?dbInquilino=<%=nome_inquilino%>">Visualizar</a></td>
                     </tr>
                     <%

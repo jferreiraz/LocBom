@@ -52,7 +52,6 @@
                 String nome = "";
                 String email = "";
                 String senha = "";
-                String tipoUsuario = "";
                 String dbId = request.getParameter("id");
 
                 Connection conn = CriarConexao.getConexao();
@@ -64,7 +63,6 @@
                     nome = rs.getString("nome");
                     email = rs.getString("email");
                     senha = rs.getString("senha");
-                    tipoUsuario = rs.getString("tipo_usuario");
                 }
 
             %>
@@ -82,7 +80,6 @@
                         <tr><td>Nome</td><td><input type="text" name="nome" value="<%= nome%>"></td><td><%= nome%></td></tr>
                         <tr><td>Email</td><td><input type="text" name="email" value="<%= email%>"></td><td><%= email%></td></tr>
                         <tr><td>Senha</td><td><input type="password" name="senha" value="<%= senha%>"></td><td><%= senha%></td></tr>
-                        <tr><td>Tipo Usuário</td><td><input type="text" name="tipo_usuario" value="<%= tipoUsuario%>"></td><td><%= tipoUsuario%></td></tr>
                         <tr><td colspan="3"><input type="button" value="cadastrar" onclick="validarAlteracao()"></td></tr>
                     </tbody>
                 </table>

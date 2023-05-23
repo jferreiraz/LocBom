@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class CadastroPagamentoServlet extends HttpServlet{
     
@@ -25,13 +26,12 @@ public class CadastroPagamentoServlet extends HttpServlet{
         protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             PrintWriter writer = response.getWriter();
+            HttpSession session = request.getSession();
             String valor = request.getParameter("valor");
             String data_pagamento = request.getParameter("data_pagamento");
-            String pagante = request.getParameter("pagante");
-            String recebedor = request.getParameter("recebedor");
             String descricao = request.getParameter("descricao");
             String inquilino = request.getParameter("inquilino");
-            String numero_apartamento = request.getParameter("numero_apartamento");
+            String id_usuario = (String) session.getAttribute("id_usuario");
 
 
             
@@ -43,22 +43,17 @@ public class CadastroPagamentoServlet extends HttpServlet{
                 Pagamento p = new Pagamento();
                 p.setValor(Double.valueOf(valor));
                 p.setData_pagamento(data_pagamento);
-                p.setPagante(pagante);
-                p.setRecebedor(recebedor);
                 p.setDescricao(descricao);
                 p.setInquilino(inquilino);
-                p.setNumero_apartamento(numero_apartamento);
-
+                p.setId_usuario(Integer.valueOf(id_usuario));
 
                 PagamentoDAO dao = new PagamentoDAO(con);
                 dao.adicionar(p);
                 request.setAttribute("valor", p.getValor());
                 request.setAttribute("data_pagamento", p.getData_pagamento());
-                request.setAttribute("pagante", p.getPagante());
-                request.setAttribute("recebedor", p.getRecebedor());
                 request.setAttribute("descricao", p.getDescricao());
                 request.setAttribute("inquilino", p.getInquilino());
-                request.setAttribute("numero_apartamento", p.getNumero_apartamento());
+                request.setAttribute("id_usuario", p.getId_usuario());
                 
                 request.getRequestDispatcher("gerenciarPagamentos.jsp").forward(request, response);
 

@@ -10,7 +10,7 @@ public class UsuarioDAO {
         this.con = con;
     }
     public void adicionar(Usuario u) throws SQLException {
-        String sql = "insert into login(nome,email,senha,tipo_usuario) values (?,?,?,?)";
+        String sql = "insert into login(nome,email,senha) values (?,?,?)";
         
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -18,7 +18,6 @@ public class UsuarioDAO {
             stmt.setString(1, u.getNome());
             stmt.setString(2, u.getEmail());
             stmt.setString(3, u.getSenha());
-            stmt.setString(4, u.getTipo_usuario());
             
             stmt.execute();
             stmt.close();
@@ -30,7 +29,7 @@ public class UsuarioDAO {
     }
     
     public void alterar(Usuario u) throws SQLException {
-        String sql = "UPDATE login SET nome = ?, email = ?, senha = ?, tipo_usuario = ? WHERE id_usuario = ?";
+        String sql = "UPDATE login SET nome = ?, email = ?, senha = ? WHERE id_usuario = ?";
         
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -38,8 +37,7 @@ public class UsuarioDAO {
             stmt.setString(1, u.getNome());
             stmt.setString(2, u.getEmail());
             stmt.setString(3, u.getSenha());
-            stmt.setString(4, u.getTipoUsuario());
-            stmt.setInt(5, u.getId());
+            stmt.setInt(4, u.getId());
             
             stmt.execute();
             stmt.close();

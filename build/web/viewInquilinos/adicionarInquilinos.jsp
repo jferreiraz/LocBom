@@ -6,12 +6,13 @@
 
 <%
     String endereco = "";
-    String dbId = request.getParameter("id");
+    String dbEndereco = request.getParameter("dbEndereco");
     String sql = "";
+    String enderecoTitulo = "";
     
-    if(dbId == null){sql="select (endereco) from endereco";}
+    if(dbEndereco == null){sql="select (endereco) from endereco"; enderecoTitulo= "";}
     else
-    if(Integer.valueOf(dbId) >= 1){sql = "select (endereco) from endereco WHERE id_endereco =\'" + dbId + "\'";}
+    {sql = "select (endereco) from endereco WHERE endereco =\'" + dbEndereco + "\'"; enderecoTitulo = dbEndereco;}
 
     Connection conn = CriarConexao.getConexao();
     Statement stmt = conn.createStatement();
@@ -24,13 +25,13 @@
     "http://www.w3.org/TR/html14/loose.dtd">
 <html>
     <head>
-        <title>Página de cadastro dos Endereços</title>
+        <title>Página de cadastro de Inquilinos</title>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <link rel="stylesheet" type="text/css" href="../ref/style.css" />
         <script type="text/javascript">
             function validar() {
                 var nome_inquilino_cad = frmCadastrarInquilino.nome_inquilino_cad.value;
-                var quantidade_pessoas_cad = frmCadastrarInquilino.quantidade_pessoas_cad.value;
+                var apartamento_cad = frmCadastrarInquilino.apartamento_cad.value;
                 var data_entrada_cad = frmCadastrarInquilino.data_entrada_cad.value;
                 var endereco_cad = frmCadastrarInquilino.endereco_cad.value;
 
@@ -40,9 +41,9 @@
                     return false;
                 }
 
-                if (quantidade_pessoas_cad == "") {
-                    alert("Preencha o campo de quantidade de pessoas!");
-                    frmCadastrarInquilino.quantidade_pessoas_cad.focus();
+                if (apartamento == "") {
+                    alert("Preencha o campo de apartamento!");
+                    frmCadastrarInquilino.apartamento_cad.focus();
                     return false;
                 }
 
@@ -72,7 +73,7 @@
             </nav>
         </div>
         <div class="menu">
-            <p class="font">Adição de Inquilinos <p>
+            <p class="font">Adição de Inquilino no endereço<br><i><%=enderecoTitulo%></i><p>
         </div>
         <form name="frmCadastrarInquilino" action="CadastroInquilino" method="post">
             <div class="table_body">
@@ -84,19 +85,18 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><label for="cidade_cad">Nome do inquilino </label></td>
-                            <td><label for="bairro_cad">Quantidade de pessoas </label></td>
-                            <td><label for="endereco_cad">Data de entrada </label></td>
-                            <td><label for="quantidade_aptos_cad">Endereço </label></td>
+                            <td><label for="nome_cad">Nome do inquilino </label></td>
+                            <td><label for="apartamento_cad">Apartamento </label></td>
+                            <td><label for="data_cad">Data de entrada </label></td>
+                            <td><label for="endereco_cad">Endereço </label></td>
                         </tr>
                         <tr>
-                            <td><input id="nome_inquilino_cad" name="nome_inquilino" required="required" type="text" placeholder="ex. Alberto"/></td>
-                            <td><input id="quantidade_pessoas_cad" name="quantidade_pessoas" required="required" type="text" placeholder="ex. 2 "/></td>
-                            <td><input id="data_entrada_cad" name="data_entrada" required="required" type="date" placeholder="ex. 20/03/2022"/></td>
-                            <!--<td><input id="endereco_cad" name="endereco" type="text" placeholder="ex. 8)" value="<//%= endereco%>"/></td> -->
+                            <td><input id="nome_cad" name="nome_inquilino" required="required" type="text" placeholder="ex. Alberto"/></td>
+                            <td><input id="apartamento_cad" name="apartamento" required="required" type="text" placeholder="ex. 2 "/></td>
+                            <td><input id="data_cad" name="data_entrada" required="required" type="date" placeholder="ex. 20/03/2022"/></td>
                             <td><select name=endereco id="endereco_cad">
                                     <%                                        while (rs.next()) {
-                                            endereco = rs.getString("endereco");
+                                            endereco = rs.getString("endereco"); 
                                     %>
                                     <option  value="<%=endereco%>" ><%=endereco%></option>
                                         <% } %>

@@ -11,7 +11,7 @@ public class EnderecoDAO {
         this.con = con;
     }
     public void adicionar(Endereco e) throws SQLException {
-        String sql = "insert into endereco(cidade,bairro,endereco,id_usuario) values (?,?,?,?,?)";
+        String sql = "insert into endereco(cidade,bairro,endereco,id_usuario) values (?,?,?,?)";
         
         try {
             PreparedStatement stmt = con.prepareStatement(sql);

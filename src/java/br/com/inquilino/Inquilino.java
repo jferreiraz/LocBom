@@ -2,11 +2,20 @@ package br.com.inquilino;
 
 public class Inquilino {
     private int id_inquilinos;
+    private int id_usuario;
     private String nome_inquilino;
-    private String quantidade_pessoas;
+    private String apartamento;
     private String data_entrada;
     private String endereco;
 
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+    
     public int getId_inquilinos() {
         return id_inquilinos;
     }
@@ -23,12 +32,12 @@ public class Inquilino {
         this.nome_inquilino = nome_inquilino;
     }
 
-    public String getQuantidade_pessoas() {
-        return quantidade_pessoas;
+    public String getApartamento() {
+        return apartamento;
     }
 
-    public void setQuantidade_pessoas(String quantidade_pessoas) {
-        this.quantidade_pessoas = quantidade_pessoas;
+    public void setApartamento(String apartamento) {
+        this.apartamento = apartamento;
     }
 
     public String getData_entrada() {

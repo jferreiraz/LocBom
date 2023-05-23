@@ -17,10 +17,10 @@ public class LoginControllers extends HttpServlet {
         
         String emailBuscado = "";
         String senhaBuscada = "";
+        
         Connection con;
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
-        String tipoUsuario = request.getParameter("tipo_usuario");
         String idUsuario = "";
         String nome = request.getParameter("nome");
         String sql = "Select * from login where email = ? and senha = ?";
@@ -35,7 +35,6 @@ public class LoginControllers extends HttpServlet {
                 idUsuario = rs.getString("id_usuario");
                 emailBuscado = rs.getString("email");
                 senhaBuscada = rs.getString("senha");
-                tipoUsuario = rs.getString("tipo_usuario");
                 nome = rs.getString("nome");
             }
             rs.close();
@@ -47,7 +46,6 @@ public class LoginControllers extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("email", email);
             session.setAttribute("nome", nome);
-            session.setAttribute("tipo_usuario", tipoUsuario);
             session.setAttribute("id_usuario", idUsuario);
             request.getRequestDispatcher("logado.jsp").forward(request, response);
         } else {

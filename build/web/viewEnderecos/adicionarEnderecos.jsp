@@ -65,6 +65,9 @@
                             <td><input id="cidade_cad" name="cidade" required="required" type="text" placeholder="ex. Brasília"/></td>
                             <td><input id="bairro_cad" name="bairro" required="required" type="text" placeholder="ex. Taguatinga Sul "/></td>
                             <td><input id="endereco_cad" name="endereco" required="required" type="text" placeholder="ex. St D Sul QSD 28 casa 12"/></td>
+                            <%
+            String id_usuario = (String) session.getAttribute("id_usuario");
+%>
                         </tr>
                         <tr><td colspan="4"><input type="submit" value="Cadastrar" onclick="return validar()"/></td></tr>
                     </tbody>

@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class CadastroInquilinoServlet extends HttpServlet{
     
@@ -24,13 +25,13 @@ public class CadastroInquilinoServlet extends HttpServlet{
         protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             PrintWriter writer = response.getWriter();
-            
-            //String id = request.getParameter("id"); //requisitar id endereço
+            HttpSession session = request.getSession();
                         
             String nome_inquilino = request.getParameter("nome_inquilino");
-            String quantidade_pessoas = request.getParameter("quantidade_pessoas");
+            String apartamento = request.getParameter("apartamento");
             String data_entrada = request.getParameter("data_entrada");
             String endereco = request.getParameter("endereco");
+            String id_usuario = (String) session.getAttribute("id_usuario");
  
             Connection con;
             try {
@@ -40,17 +41,19 @@ public class CadastroInquilinoServlet extends HttpServlet{
                 Inquilino i = new Inquilino();
                 //Endereco e = new Endereco();
                 i.setNome_inquilino(nome_inquilino);
-                i.setQuantidade_pessoas(quantidade_pessoas);
+                i.setApartamento(apartamento);
                 i.setData_entrada(data_entrada);
                 i.setEndereco(endereco);
+                i.setId_usuario(Integer.valueOf(id_usuario));
 
                 InquilinoDAO dao = new InquilinoDAO(con);
                 dao.adicionar(i);
                 //dao.adicionarEndereco();
                 request.setAttribute("nome_inquilino", i.getNome_inquilino());
-                request.setAttribute("quantidade_pessoas", i.getQuantidade_pessoas());
+                request.setAttribute("apartamento", i.getApartamento());
                 request.setAttribute("data_entrada", i.getData_entrada());
                 request.setAttribute("endereco", i.getEndereco());
+                request.setAttribute("id_usuario", i.getId_usuario());
                 
                 request.getRequestDispatcher("../viewInquilinos/gerenciarInquilinos.jsp").forward(request, response);
 

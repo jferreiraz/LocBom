@@ -34,7 +34,6 @@
                     <th><strong>Nome</strong></th>
                     <th><strong>Email</strong></th>
                     <th><strong>Senha</strong></th>
-                    <th><strong>Tipo de usuário</strong></th>
                     <th colspan="2"><strong>Alterações</strong></th>
                 </tr>
                 </thead>
@@ -44,7 +43,6 @@
                     String nome = "";
                     String email = "";
                     String senha = "";
-                    String tipoUsuario = "";
 
                     Connection conn = CriarConexao.getConexao();
                     Statement stmt = conn.createStatement();
@@ -54,7 +52,6 @@
                         nome = rs.getString("nome");
                         email = rs.getString("email");
                         senha = rs.getString("senha");
-                        tipoUsuario = rs.getString("tipo_usuario");
                 %>
 
                 <tr>
@@ -62,7 +59,6 @@
                     <td><%=nome%></td>
                     <td><%=email%></td>
                     <td><%=senha%></td>
-                    <td><%=tipoUsuario%></td>
                     <td><a href="alterarUsuarios.jsp?id=<%=id%>">Editar</a></td>
                     <td><a href="deletarUsuarios.jsp?id=<%=id%>">Deletar</a></td>
                 </tr>

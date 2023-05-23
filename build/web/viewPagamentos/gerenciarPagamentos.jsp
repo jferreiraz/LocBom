@@ -35,11 +35,8 @@
                         <th><strong>Id</strong></th>
                         <th><strong>Valor</strong></th>
                         <th><strong>Data de pagamento</strong></th>
-                        <th><strong>Pagante</strong></th>
-                        <th><strong>Recebedor</strong></th>
                         <th><strong>Descricao</strong></th>
                         <th><strong>Inquilino</strong></th>
-                        <th><strong>Número Apartamento</strong></th>
                         <th colspan="2"><strong>Alterações</strong></th>
                     </tr>
                 </thead>
@@ -48,42 +45,34 @@
                     <%
 
                         String dbInquilino = request.getParameter("dbInquilino");
+                        String idUsuario = (String) session.getAttribute("id_usuario");
 
                         if (dbInquilino != null) {
 
                             int id = 0;
                             double valor = 0;
                             String data_pagamento = "";
-                            String pagante = "";
-                            String recebedor = "";
                             String descricao = "";
                             String inquilino = "";
-                            String numero_apartamento = "";
 
                             Connection conn = CriarConexao.getConexao();
                             Statement stmt = conn.createStatement();
-                            ResultSet rs = stmt.executeQuery("select * from pagamentos where inquilino =\'" + dbInquilino + "\' ");
+                            ResultSet rs = stmt.executeQuery("select * from pagamentos where inquilino =\'" + dbInquilino + "\' AND id_usuario = \'" + idUsuario + "\'");
 
                             while (rs.next()) {
                                 id = rs.getInt("id_pagamentos");
                                 valor = rs.getDouble("valor");
                                 data_pagamento = rs.getString("data_pagamento");
-                                pagante = rs.getString("pagante");
-                                recebedor = rs.getString("recebedor");
                                 descricao = rs.getString("descricao");
                                 inquilino = rs.getString("inquilino");
-                                numero_apartamento = rs.getString("numero_apartamento");
                     %>
 
                     <tr>
                         <td><%=id%></td>
                         <td><%=valor%></td>
                         <td><%=data_pagamento%></td>
-                        <td><%=pagante%></td>
-                        <td><%=recebedor%></td>
                         <td><%=descricao%></td>
                         <td><%=inquilino%></td>
-                        <td><%=numero_apartamento%></td>
                         <td><a href="alterarPagamentos.jsp?id=<%=id%>">Editar</a></td>
                         <td><a href="deletarPagamentos.jsp?id=<%=id%>">Deletar</a></td>
                     </tr>
@@ -97,35 +86,26 @@
                         int id = 0;
                         double valor = 0;
                         String data_pagamento = "";
-                        String pagante = "";
-                        String recebedor = "";
                         String descricao = "";
                         String inquilino = "";
-                        String numero_apartamento = "";
 
                         Connection conn = CriarConexao.getConexao();
                         Statement stmt = conn.createStatement();
-                        ResultSet rs = stmt.executeQuery("select * from pagamentos");
+                        ResultSet rs = stmt.executeQuery("select * from pagamentos WHERE id_usuario = \'" + idUsuario + "\'");
                         while (rs.next()) {
                             id = rs.getInt("id_pagamentos");
                             valor = rs.getDouble("valor");
                             data_pagamento = rs.getString("data_pagamento");
-                            pagante = rs.getString("pagante");
-                            recebedor = rs.getString("recebedor");
                             descricao = rs.getString("descricao");
                             inquilino = rs.getString("inquilino");
-                            numero_apartamento = rs.getString("numero_apartamento");
                     %>
 
                     <tr>
                         <td><%=id%></td>
                         <td><%=valor%></td>
                         <td><%=data_pagamento%></td>
-                        <td><%=pagante%></td>
-                        <td><%=recebedor%></td>
                         <td><%=descricao%></td>
                         <td><%=inquilino%></td>
-                        <td><%=numero_apartamento%></td>
                         <td><a href="alterarPagamentos.jsp?id=<%=id%>">Editar</a></td>
                         <td><a href="deletarPagamentos.jsp?id=<%=id%>">Deletar</a></td>
                     </tr>

@@ -16,8 +16,8 @@
                     alert("Campo nome do inquilino não informado");
                     return false;
                 }
-                if (document.formAlterarInquilinos.quantidade_pessoas.value === "") {
-                    alert("Campo quantidade de pessoas não informado");
+                if (document.formAlterarInquilinos.apartamento.value === "") {
+                    alert("Campo apartamento não informado");
                     return false;
                 }
                 if (document.formAlterarInquilinos.data_entrada.value === "") {
@@ -53,7 +53,7 @@
             <%
                 int id = 0;
                 String nome_inquilino = "";
-                String quantidade_pessoas = "";
+                String apartamento = "";
                 String data_entrada = "";
                 String enderecoAntigo = "";
                 String endereco = "";
@@ -67,7 +67,7 @@
                 while (rs.next()) {
                     id = rs.getInt("id_inquilinos");
                     nome_inquilino = rs.getString("nome_inquilino");
-                    quantidade_pessoas = rs.getString("quantidade_pessoas");
+                    apartamento = rs.getString("apartamento");
                     data_entrada = rs.getString("data_entrada");
                     enderecoAntigo = rs.getString("endereco");
                 }
@@ -85,7 +85,7 @@
                     <tbody>
                         <tr><td>Id</td><td><input class="id_border" type="text" name="id_inquilinos" value="<%= id%>" readonly></td><td><%= id%> </td></tr>
                         <tr><td>Nome do inquilino</td><td><input type="text" name="nome_inquilino" value="<%= nome_inquilino%>"></td><td><%= nome_inquilino%> </td></tr>
-                        <tr><td>Quantidade de pessoas</td><td><input type="text" name="quantidade_pessoas" value="<%= quantidade_pessoas%>"></td><td><%= quantidade_pessoas%> </td></tr>
+                        <tr><td>Apartamento</td><td><input type="text" name="apartamento" value="<%= apartamento%>"></td><td><%= apartamento%> </td></tr>
                         <tr><td>Data de entrada</td><td><input type="date" name="data_entrada" value="<%= data_entrada%>"></td><td><%= data_entrada%></td></tr>
                        
                         <tr><td>Endereço</td><td><select name="endereco" id="enderecos">

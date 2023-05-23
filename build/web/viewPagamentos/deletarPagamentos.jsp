@@ -36,11 +36,8 @@
                 int id = 0;
                 String valor = "";
                 String data_pagamento = "";
-                String pagante = "";
-                String recebedor = "";
                 String descricao = "";
                 String inquilino = "";
-                String numero_apartamento = "";
                 String dbId = request.getParameter("id");
 
                 Connection conn = CriarConexao.getConexao();
@@ -51,11 +48,8 @@
                     id = rs.getInt("id_pagamentos");
                     valor = rs.getString("valor");
                     data_pagamento = rs.getString("data_pagamento");
-                    pagante = rs.getString("pagante");
-                    recebedor = rs.getString("recebedor");
                     descricao = rs.getString("descricao");
                     inquilino = rs.getString("inquilino");
-                    numero_apartamento = rs.getString("numero_apartamento");
                 }
             %>
             <div class="table_body">
@@ -70,11 +64,8 @@
                         <tr><td><strong>ID</strong></td><td><input type="text" name="id" class="id_border" value="<%= id%>" readonly></td></tr>
                         <tr><td><strong>Valor</strong></td><td><%= valor%></td></tr>
                         <tr><td><strong>Data de Pagamento</strong></td><td><%= data_pagamento%></td></tr>
-                        <tr><td><strong>Pagante</strong></td><td><%= pagante%></td></tr>
-                        <tr><td><strong>Recebedor</strong></td><td><%= recebedor%></td></tr>
                         <tr><td><strong>Descrição</strong></td><td><%= descricao%></td></tr>
                         <tr><td><strong>Inquilino</strong></td><td><%= inquilino%></td></tr>
-                        <tr><td><strong>Número do apartamento</strong></td><td><%= numero_apartamento%></td></tr>
                         <tr><td colspan="2"><input type="button" value="deletar" onclick="deletar()"></td></tr>
                     </tbody>
                 </table>

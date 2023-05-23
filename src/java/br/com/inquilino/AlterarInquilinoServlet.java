@@ -27,7 +27,7 @@ public class AlterarInquilinoServlet extends HttpServlet{
             
             String id_inquilinos = request.getParameter("id_inquilinos");
             String nome_inquilino = request.getParameter("nome_inquilino");
-            String quantidade_pessoas = request.getParameter("quantidade_pessoas");
+            String apartamento = request.getParameter("apartamento");
             String data_entrada = request.getParameter("data_entrada");
             String endereco = request.getParameter("endereco");
             
@@ -38,7 +38,7 @@ public class AlterarInquilinoServlet extends HttpServlet{
 
                 Inquilino i = new Inquilino();
                 i.setNome_inquilino(nome_inquilino);
-                i.setQuantidade_pessoas(quantidade_pessoas);
+                i.setApartamento(apartamento);
                 i.setData_entrada(data_entrada);
                 i.setEndereco(endereco);
                 i.setId_inquilinos(Integer.valueOf(id_inquilinos));
@@ -47,7 +47,7 @@ public class AlterarInquilinoServlet extends HttpServlet{
                 dao.alterar(i);
                 
                 request.setAttribute("nome_inquilino", i.getNome_inquilino());
-                request.setAttribute("quantidade_pessoas", i.getQuantidade_pessoas());
+                request.setAttribute("apartamento", i.getApartamento());
                 request.setAttribute("data_entrada", i.getData_entrada());
                 request.setAttribute("endereco", i.getEndereco());
                 request.setAttribute("id_usuario", i.getId_inquilinos());

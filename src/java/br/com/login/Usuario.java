@@ -2,19 +2,9 @@ package br.com.login;
 
 public class Usuario { 
     private int id;
-    private String tipo_usuario;
-    private String tipoUsuario;
     private String email;
     private String senha;
     private String nome;
-
-    public String getTipo_usuario() {
-        return tipo_usuario;
-    }
-
-    public void setTipo_usuario(String tipo_usuario) {
-        this.tipo_usuario = tipo_usuario;
-    }
     
     public int getId() {
         return id;
@@ -22,14 +12,6 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
     }
 
     public String getNome() {

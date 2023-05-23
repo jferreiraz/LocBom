@@ -10,15 +10,16 @@ public class InquilinoDAO {
         this.con = con;
     }
     public void adicionar(Inquilino i) throws SQLException {
-        String sql = "insert into inquilinos(nome_inquilino,quantidade_pessoas,data_entrada,endereco) values (?,?,?,?)";
+        String sql = "insert into inquilinos(nome_inquilino,apartamento,data_entrada,endereco,id_usuario) values (?,?,?,?,?)";
         
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             
             stmt.setString(1, i.getNome_inquilino());
-            stmt.setString(2, i.getQuantidade_pessoas());
+            stmt.setString(2, i.getApartamento());
             stmt.setString(3, i.getData_entrada());
             stmt.setString(4, i.getEndereco());
+            stmt.setInt(5, i.getId_usuario());
             
             stmt.execute();
             stmt.close();
@@ -29,13 +30,13 @@ public class InquilinoDAO {
         }
     }
     public void alterar(Inquilino i) throws SQLException {
-        String sql = "UPDATE inquilinos SET nome_inquilino = ?, quantidade_pessoas = ?, data_entrada = ?, endereco = ? WHERE id_inquilinos = ?";
+        String sql = "UPDATE inquilinos SET nome_inquilino = ?, apartamento = ?, data_entrada = ?, endereco = ? WHERE id_inquilinos = ?";
         
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             
             stmt.setString(1, i.getNome_inquilino());
-            stmt.setString(2, i.getQuantidade_pessoas());
+            stmt.setString(2, i.getApartamento());
             stmt.setString(3, i.getData_entrada());
             stmt.setString(4, i.getEndereco());
             stmt.setInt(5, i.getId_inquilinos());

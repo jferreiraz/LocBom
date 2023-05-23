@@ -2,18 +2,24 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="br.com.conexao.CriarConexao"%>
-          
+
 <%
     String inquilino = "";
-    String dbId = request.getParameter("id");
+    String dbInquilino = request.getParameter("dbInquilino");
+    String sql = "";
+    String inquilinoTitulo = "";
+
+    if (dbInquilino == null) {
+        sql = "select * from inquilinos";
+        inquilinoTitulo = "";
+    } else {
+        sql = "select * from inquilinos where nome_inquilino =\'" + dbInquilino + "\' ";
+        inquilinoTitulo = dbInquilino;
+    }
 
     Connection conn = CriarConexao.getConexao();
     Statement stmt = conn.createStatement();
-    ResultSet rs = stmt.executeQuery("select * from pagamentos where id_pagamentos =\'" + dbId + "\' ");
-
-    while (rs.next()) {
-        inquilino = rs.getString("inquilino");
-    }
+    ResultSet rs = stmt.executeQuery(sql);
 
 %>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
@@ -28,11 +34,8 @@
             function validar() {
                 var valor_cad = frmCadastrarPagamento.valor_cad.value;
                 var data_pag_cad = frmCadastrarPagamento.data_pag_cad.value;
-                var pagante_cad = frmCadastrarPagamento.pagante_cad.value;
-                var recebedor_cad = frmCadastrarPagamento.recebedor_cad.value;
                 var descricao_cad = frmCadastrarPagamento.descricao_cad.value;
                 var inquilino_cad = frmCadastrarPagamento.inquilino_cad.value;
-                var numero_apto_cad = frmCadastrarPagamento.numero_apto_cad.value;
 
                 if (valor_cad == "") {
                     alert("Preencha o campo do valor!");
@@ -45,32 +48,14 @@
                     frmCadastrarPagamento.data_pag_cad.focus();
                     return false;
                 }
-
-                if (pagante_cad == "") {
-                    alert("Preencha o campo de pagante!");
-                    frmCadastrarPagamento.pagante_cad.focus();
-                    return false;
-                }
                 if (descricao_cad == "") {
                     alert("Preencha o campo de descrição!");
                     frmCadastrarPagamento.descricao_cad.focus();
                     return false;
                 }
-
-                if (recebedor_cad == "") {
-                    alert("Preencha o campo de recebedor!");
-                    frmCadastrarPagamento.recebedor_cad.focus();
-                    return false;
-                }
-
                 if (inquilino_cad == "") {
                     alert("Preencha o campo inquilino!");
                     frmCadastrarPagamento.inquilino_cad.focus();
-                    return false;
-                }
-                if (numero_apto_cad == "") {
-                    alert("Preencha o número do apartamento!");
-                    frmCadastrarPagamento.numero_apto_cad.focus();
                     return false;
                 } else {
                     alert("Cadastro de pagamento realizado com sucesso! ");
@@ -89,7 +74,7 @@
             </nav>
         </div>
         <div class="menu">
-            <p class="font">Adição de Pagamentos <p>
+            <p class="font">Adição de Pagamentos no <br><i><%=inquilinoTitulo%></i><p>
         </div>
         <form name="frmCadastrarPagamento" action="CadastroPagamento" method="post">
 
@@ -104,20 +89,20 @@
                         <tr>
                             <td><label for="valor_cad">Valor do pagamento</label></td>
                             <td><label for="data_pag_cad">Data de pagamento</label></td>
-                            <td><label for="pagante_cad">Pagante</label></td>
-                            <td><label for="recebedor_cad">Recebedor</label></td>
                             <td><label for="descricao_cad">Descrição</label></td>
                             <td><label for="inquilino_cad">Inquilino</label></td>
-                            <td><label for="numero_apto_cad">Número do apartamento</label></td>
                         </tr>
                         <tr>
                             <td><input id="valor_cad" name="valor" required="required" type="text" placeholder="ex. 20,50"/></td>
                             <td><input id="data_pag_cad" name="data_pagamento" required="required" type="date" placeholder="ex. 20/05/2023 "/></td>
-                            <td><input id="pagante_cad" name="pagante" required="required" type="text" placeholder="ex. Carlos Alberto" value="<%=inquilino%>" /></td>
-                            <td><input id="recebedor_cad" name="recebedor" type="text" placeholder="ex. Roberto"/></td>
                             <td><input id="descricao_cad" name="descricao" type="text" placeholder="ex. Pago adiantado uma semana"/></td>
-                            <td><input id="inquilino_cad" name="inquilino" type="text" placeholder="ex. Roberto" value="<%=inquilino%>" /></td>
-                            <td><input id="numero_apto_cad" name="numero_apartamento" type="text" placeholder="ex. 201"/></td>
+                            <td><select name=inquilino id="inquilino_cad">
+                                    <%                                        while (rs.next()) {
+                                            inquilino = rs.getString("nome_inquilino");
+                                    %>
+                                    <option  value="<%=inquilino%>" ><%=inquilino%></option>
+                                    <% }%>
+                                </select></td>
                         </tr>
                         <tr><td colspan="7"><input type="submit" value="Cadastrar" onclick="return validar()"/></td></tr>
                     </tbody>

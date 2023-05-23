@@ -35,7 +35,7 @@
             <%
                 int id = 0;
                 String nome_inquilino = "";
-                String quantidade_pessoas = "";
+                String apartamento = "";
                 String data_entrada = "";
                 String endereco = "";
                 String dbId = request.getParameter("id");
@@ -47,7 +47,7 @@
                 while (rs.next()) {
                     id = rs.getInt("id_inquilinos");
                     nome_inquilino = rs.getString("nome_inquilino");
-                    quantidade_pessoas = rs.getString("quantidade_pessoas");
+                    apartamento = rs.getString("apartamento");
                     data_entrada = rs.getString("data_entrada");
                     endereco = rs.getString("endereco");
                 }
@@ -63,7 +63,7 @@
                     <tbody>
                         <tr><td><strong>ID</strong></td><td><input type="text" name="id" class="id_border" value="<%= id%>" readonly></td></tr>
                         <tr><td><strong>Nome do inquilino</strong></td><td><%= nome_inquilino%></td></tr>
-                        <tr><td><strong>Quantidade de pessoas</strong></td><td><%= quantidade_pessoas%></td></tr>
+                        <tr><td><strong>Apartamento</strong></td><td><%= apartamento%></td></tr>
                         <tr><td><strong>Data de entrada</strong></td><td><%= data_entrada%></td></tr>
                         <tr><td><strong>Endereço</strong></td><td><%= endereco%></td></tr>
                         <tr><td colspan="2"><input type="button" value="deletar" onclick="deletar()"></td></tr>

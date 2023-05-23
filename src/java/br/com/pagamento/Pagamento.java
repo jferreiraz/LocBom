@@ -2,13 +2,19 @@ package br.com.pagamento;
 
 public class Pagamento {
     private int id_pagamentos;
+    private int id_usuario;
     private double valor;
     private String data_pagamento;
-    private String pagante;
-    private String recebedor;
     private String descricao;
     private String inquilino;
-    private String numero_apartamento;
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
 
     public int getId_pagamentos() {
         return id_pagamentos;
@@ -34,22 +40,6 @@ public class Pagamento {
         this.data_pagamento = data_pagamento;
     }
 
-    public String getPagante() {
-        return pagante;
-    }
-
-    public void setPagante(String pagante) {
-        this.pagante = pagante;
-    }
-
-    public String getRecebedor() {
-        return recebedor;
-    }
-
-    public void setRecebedor(String recebedor) {
-        this.recebedor = recebedor;
-    }
-
     public String getDescricao() {
         return descricao;
     }
@@ -65,14 +55,5 @@ public class Pagamento {
     public void setInquilino(String inquilino) {
         this.inquilino = inquilino;
     }
-
-    public String getNumero_apartamento() {
-        return numero_apartamento;
-    }
-
-    public void setNumero_apartamento(String numero_apartamento) {
-        this.numero_apartamento = numero_apartamento;
-    }
-    
-    
+      
 }

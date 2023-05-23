@@ -9,7 +9,6 @@
 <%
     String email = (String) session.getAttribute("email");
     String nome = (String) session.getAttribute("nome");
-    String tipoUsuario = (String) session.getAttribute("tipo_usuario");
     String idUsuario = (String) session.getAttribute("id_usuario");
 %>
 
@@ -44,7 +43,6 @@
             <div class="right-div">
                 <label> Seja bem-vindo <%=nome%>,</label><br><br>
                 <label> Você está logado com o email: <%=email%>.</label><br><br>
-                <label> Sua conta possui acesso de <%=tipoUsuario%>.</label><br><br>
                 <label> Sua conta possui acesso de <%=idUsuario%>.</label><br><br>
             </div>
         </div>

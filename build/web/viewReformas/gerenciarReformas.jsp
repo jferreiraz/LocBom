@@ -5,6 +5,9 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="br.com.conexao.CriarConexao"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%
+    String dbEndereco = request.getParameter("dbEndereco");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html14/loose.dtd">
 <html>
@@ -26,16 +29,18 @@
             </nav>
         </div>
         <div class="menu">
-            <p class="font"> Página de Controle de Reformas <p>
-                <a href="gerenciarEnderecos.jsp">   Gerenciar Endereços   </a>
+            <p class="font"> Página de Controle de Reformas <%=dbEndereco%><p>
+                <a href="../viewEnderecos/gerenciarEnderecos.jsp">   Voltar ao Gerenciar Endereços   </a>
         </div>
         <div class="table_body">
             <table width="700px" border="1" cellspacing="0">
                 <thead>
                     <tr>
-                        <th colspan="2"><strong>Cidade</strong></th>
-                        <th colspan="2"><strong>Bairro</strong></th>
+                        <th colspan="2"><strong>ID</strong></th>
+                        <th colspan="2"><strong>Descrição</strong></th>
+                        <th colspan="2"><strong>Valor</strong></th>
                         <th colspan="2"><strong>Endereço</strong></th>
+                        <th colspan="2"><strong>Id do Usuário</strong></th>
 
                         <th colspan="2"><strong>Reformas</strong></th>
                     </tr>
@@ -43,35 +48,33 @@
                 <tbody>
                     <%
                         int id = 0;
-                        String cidade = "";
-                        String bairro = "";
-                        String dbEndereco = "";
-                        int quantidadeApartamentos = 0;
+                        String descricao = "";
+                        String valor = "";
 
                         String idUsuario = (String) session.getAttribute("id_usuario");
 
-                        String sql = "SELECT * FROM endereco WHERE id_usuario = ? ";
+                        String sql = "SELECT * FROM reformas WHERE id_usuario = \'" + idUsuario + "\' AND endereco= \'" + dbEndereco + "\' ";
 
                         Connection con;
                         con = CriarConexao.getConexao();
                         PreparedStatement stmt = con.prepareStatement(sql);
-                        stmt.setString(1, idUsuario);
                         ResultSet rs = stmt.executeQuery();
 
                         while (rs.next()) {
-                            id = rs.getInt("id_endereco");
-                            cidade = rs.getString("cidade");
-                            bairro = rs.getString("bairro");
+                            id = rs.getInt("id_reformas");
+                            descricao = rs.getString("descricao");
+                            valor = rs.getString("valor");
                             dbEndereco = rs.getString("endereco");
-                            quantidadeApartamentos = rs.getInt("quantidade_apartamentos");
-
+                            idUsuario = rs.getString("id_usuario");
                     %>
 
                     <tr>
 
-                        <td colspan="2"><%=cidade%></td>
-                        <td colspan="2"><%=bairro%></td>
+                        <td colspan="2"><%=id%></td>
+                        <td colspan="2"><%=descricao%></td>
+                        <td colspan="2"><%=valor%></td>
                         <td colspan="2"><%=dbEndereco%></td>
+                        <td colspan="2"><%=idUsuario%></td>
 
                         <td><a href="alterarEnderecos.jsp?id=<%=id%>">Editar</a></td>
                         <td><a href="deletarEnderecos.jsp?id=<%=id%>">Deletar</a></td>
