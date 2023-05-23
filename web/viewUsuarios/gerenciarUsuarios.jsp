@@ -30,11 +30,10 @@
             <table width="700px" border="1" cellspacing="0">
                 <thead>
                 <tr>
-                    <th><strong>Id</strong></th>
                     <th><strong>Nome</strong></th>
                     <th><strong>Email</strong></th>
                     <th><strong>Senha</strong></th>
-                    <th colspan="2"><strong>Alterações</strong></th>
+                    <th><strong>Alterações</strong><br><i>Editar/Remover</i></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -55,12 +54,11 @@
                 %>
 
                 <tr>
-                    <td><%=id%></td>
                     <td><%=nome%></td>
                     <td><%=email%></td>
                     <td><%=senha%></td>
-                    <td><a href="alterarUsuarios.jsp?id=<%=id%>">Editar</a></td>
-                    <td><a href="deletarUsuarios.jsp?id=<%=id%>">Deletar</a></td>
+                    <td><a href="alterarUsuarios.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/logoEditar.png"></a>
+                        <a href="deletarUsuarios.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/logoRemover.png"></a></td>
                 </tr>
                 <%
                     }

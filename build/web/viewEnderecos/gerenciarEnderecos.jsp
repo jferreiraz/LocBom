@@ -72,13 +72,13 @@
                         <td colspan="2"><%=bairro%></td>
                         <td colspan="2"><%=dbEndereco%></td>
 
-                        <td><a href="../viewReformas/gerenciarReformas.jsp?dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/estoque.png"></a></td>
+                        <td><a href="../viewReformas/gerenciarReformas.jsp?dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/logoControlar.png"></a></td>
                         
-                        <td><a href="alterarEnderecos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/editar-arquivo.png"></a>
-                            <a href="deletarEnderecos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/botao-apagar.png"></a></td>
+                        <td><a href="alterarEnderecos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/logoEditar.png"></a>
+                            <a href="deletarEnderecos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/logoRemover.png"></a></td>
 
-                        <td><a href="../viewInquilinos/adicionarInquilinos.jsp?dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/adicionar-ficheiro.png"></a>
-                            <a href="../viewInquilinos/gerenciarInquilinos.jsp?id=<%=id%>&dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/documento.png"></a></td>
+                        <td><a href="../viewInquilinos/adicionarInquilinos.jsp?dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/logoAdicionar.png"></a>
+                            <a href="../viewInquilinos/gerenciarInquilinos.jsp?id=<%=id%>&dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/logoVisualizar.png"></a></td>
 
                         
                     </tr>

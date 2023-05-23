@@ -31,13 +31,12 @@
             <table width="700px" border="1" cellspacing="0">
                 <thead>
                     <tr>
-                        <th><strong>Id</strong></th>
                         <th><strong>Nome do inquilino</strong></th>
                         <th><strong>Apartamento</strong></th>
                         <th><strong>Data de entrada</strong></th>
                         <th><strong>Endereco</strong></th>
-                        <th colspan="2"><strong>Alterações</strong></th>
-                        <th colspan="2"><strong>Pagamentos</strong></th>
+                        <th><strong>Alterações<br><i>Editar/Deletar</i></strong></th>
+                        <th><strong>Pagamentos<br><i>Adicionar/Visualizar</i></strong></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,15 +67,14 @@
                     %>
 
                     <tr>
-                        <td><%=id%></td>
                         <td><%=nome_inquilino%></td>
                         <td><%=apartamento%></td>
                         <td><%=data_entrada%></td>
                         <td><%=endereco%></td>
-                        <td><a href="alterarInquilinos.jsp?id=<%=id%>">Editar</a></td>
-                        <td><a href="deletarInquilinos.jsp?id=<%=id%>">Deletar</a></td>
-                        <td><a href="../viewPagamentos/adicionarPagamentos.jsp?id=<%=id%>">Adicionar</a></td>
-                        <td><a href="../viewPagamentos/gerenciarPagamentos.jsp?dbInquilino=<%=nome_inquilino%>">Visualizar</a></td>
+                        <td><a href="alterarInquilinos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/logoEditar.png"></a>
+                            <a href="deletarInquilinos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/logoRemover.png"></a></td>
+                        <td><a href="../viewPagamentos/adicionarPagamentos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/logoAdicionar.png"></a>
+                            <a href="../viewPagamentos/gerenciarPagamentos.jsp?dbInquilino=<%=nome_inquilino%>"><img height="25" width="25" class="btnSize" src="../imagens/logoVisualizar.png"></a></td>
                     </tr>
                     <%
                         }
@@ -103,15 +101,14 @@
                     %>
 
                     <tr>
-                        <td><%=id%></td>
                         <td><%=nome_inquilino%></td>
                         <td><%=apartamento%></td>
                         <td><%=data_entrada%></td>
                         <td><%=endereco%></td>
-                        <td><a href="alterarInquilinos.jsp?id=<%=id%>">Editar</a></td>
-                        <td><a href="deletarInquilinos.jsp?id=<%=id%>">Deletar</a></td>
-                        <td><a href="../viewPagamentos/adicionarPagamentos.jsp?dbInquilino=<%=nome_inquilino%>">Adicionar</a></td>
-                        <td><a href="../viewPagamentos/gerenciarPagamentos.jsp?dbInquilino=<%=nome_inquilino%>">Visualizar</a></td>
+                        <td><a href="alterarInquilinos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/logoEditar.png"></a>
+                            <a href="deletarInquilinos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/logoRemover.png"></a></td>
+                        <td><a href="../viewPagamentos/adicionarPagamentos.jsp?dbInquilino=<%=nome_inquilino%>"><img height="25" width="25" class="btnSize" src="../imagens/logoAdicionar.png"></a>
+                            <a href="../viewPagamentos/gerenciarPagamentos.jsp?dbInquilino=<%=nome_inquilino%>"><img height="25" width="25" class="btnSize" src="../imagens/logoVisualizar.png"></a></td>
                     </tr>
                     <%
                             }
