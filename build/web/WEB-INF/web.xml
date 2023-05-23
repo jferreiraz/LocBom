@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" >
+    <servlet>
+        <servlet-name>CadastroLoginServlet</servlet-name>
+        <servlet-class>br.com.login.CadastroLoginServlet</servlet-class> 
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarLoginServlet</servlet-name>
+        <servlet-class>br.com.login.AlterarLoginServlet</servlet-class> 
+    </servlet>
+    <servlet>
+        <servlet-name>DeletarLoginServlet</servlet-name>
+        <servlet-class>br.com.login.DeletarLoginServlet</servlet-class> 
+    </servlet>
+    
+    <servlet>
+        <servlet-name>CadastroEnderecoServlet</servlet-name>
+        <servlet-class>br.com.endereco.CadastroEnderecoServlet</servlet-class> 
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarEnderecoServlet</servlet-name>
+        <servlet-class>br.com.endereco.AlterarEnderecoServlet</servlet-class> 
+    </servlet>
+    <servlet>
+        <servlet-name>DeletarEnderecoServlet</servlet-name>
+        <servlet-class>br.com.endereco.DeletarEnderecoServlet</servlet-class> 
+    </servlet>
+    
+    <servlet>
+        <servlet-name>CadastroInquilinoServlet</servlet-name>
+        <servlet-class>br.com.inquilino.CadastroInquilinoServlet</servlet-class> 
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarInquilinoServlet</servlet-name>
+        <servlet-class>br.com.inquilino.AlterarInquilinoServlet</servlet-class> 
+    </servlet>
+    <servlet>
+        <servlet-name>DeletarInquilinoServlet</servlet-name>
+        <servlet-class>br.com.inquilino.DeletarInquilinoServlet</servlet-class> 
+    </servlet>
+    
+    <servlet>
+        <servlet-name>CadastroPagamentoServlet</servlet-name>
+        <servlet-class>br.com.pagamento.CadastroPagamentoServlet</servlet-class> 
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarPagamentoServlet</servlet-name>
+        <servlet-class>br.com.pagamento.AlterarPagamentoServlet</servlet-class> 
+    </servlet>
+    <servlet>
+        <servlet-name>DeletarPagamentoServlet</servlet-name>
+        <servlet-class>br.com.pagamento.DeletarPagamentoServlet</servlet-class> 
+    </servlet>
+    
+    <servlet>
+        <servlet-name>LoginControllers</servlet-name>
+        <servlet-class>LoginControllers</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CadastroLoginServlet</servlet-name>
+        <url-pattern>/CadastroLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarLoginServlet</servlet-name>
+        <url-pattern>/viewUsuarios/AlterarLogin</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>DeletarLoginServlet</servlet-name>
+        <url-pattern>/viewUsuarios/DeletarLogin</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+    <servlet-name>CadastroEnderecoServlet</servlet-name>
+        <url-pattern>/viewEnderecos/CadastroEndereco</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarEnderecoServlet</servlet-name>
+        <url-pattern>/viewEnderecos/AlterarEndereco</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>DeletarEnderecoServlet</servlet-name>
+        <url-pattern>/viewEnderecos/DeletarEndereco</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+    <servlet-name>CadastroInquilinoServlet</servlet-name>
+        <url-pattern>/viewInquilinos/CadastroInquilino</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarInquilinoServlet</servlet-name>
+        <url-pattern>/viewInquilinos/AlterarInquilino</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>DeletarInquilinoServlet</servlet-name>
+        <url-pattern>/viewInquilinos/DeletarInquilino</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+    <servlet-name>CadastroPagamentoServlet</servlet-name>
+        <url-pattern>/viewPagamentos/CadastroPagamento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarPagamentoServlet</servlet-name>
+        <url-pattern>/viewPagamentos/AlterarPagamento</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>DeletarPagamentoServlet</servlet-name>
+        <url-pattern>/viewPagamentos/DeletarPagamento</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet-mapping>
+        <servlet-name>LoginControllers</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
