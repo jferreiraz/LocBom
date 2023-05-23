@@ -177,6 +177,7 @@ input{
     border-radius: 3px;
     background-color:#dddddd;
     height: 40px;
+    width: 200px;
     font-size: 16px;
     padding: 4px;
     outline: none;
@@ -187,6 +188,7 @@ option{
    border-radius: 3px;
     background-color:#dddddd;
     height: 40px;
+    width: 200px;
     font-size: 16px;
     padding: 4px;
     outline: none;
@@ -196,7 +198,7 @@ option{
 select{
    border-radius: 3px;
     background-color:#dddddd;
-    width: 300px;
+    width: 200px;
     height: 40px;
     font-size: 16px;
     padding: 4px;
@@ -204,4 +206,19 @@ select{
     box-sizing: border-box; 
 }
 
+.btnSize{
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
+.btnStatus{
+  width: 20px;
+  height: 20px;
+  border-radius: 100px;
+  background-color: green;
+  border: none;
+}
+
+.btnStatus:focus{
+  background-color: blue; 
+}

@@ -33,13 +33,13 @@
             <table width="700px" border="1" cellspacing="0">
                 <thead>
                     <tr>
-                        <th><strong>Id</strong></th>
-                        <th><strong>Cidade</strong></th>
-                        <th><strong>Bairro</strong></th>
-                        <th><strong>Endereço</strong></th>
-                        <th><strong>Quantidade de apartamentos</strong></th>
-                        <th colspan="2"><strong>Alterações</strong></th>
-                        <th colspan="2"><strong>Inquilinos</strong></th>
+                        <th colspan="2"><strong>Cidade</strong></th>
+                        <th colspan="2"><strong>Bairro</strong></th>
+                        <th colspan="2"><strong>Endereço</strong></th>
+
+                        <th><strong>Reformas</strong><br><i>Controlar</i></th>
+                        <th><strong>Alterações</strong><br><i>Editar/Excluir</i></th>
+                        <th><strong>Inquilinos</strong><br><i>Adicionar/Visualizar</i></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,15 +70,20 @@
                     %>
 
                     <tr>
-                        <td><%=id%></td>
-                        <td><%=cidade%></td>
-                        <td><%=bairro%></td>
-                        <td><%=dbEndereco%></td>
-                        <td><%=quantidadeApartamentos%></td>
-                        <td><a href="alterarEnderecos.jsp?id=<%=id%>">Editar</a></td>
-                        <td><a href="deletarEnderecos.jsp?id=<%=id%>">Deletar</a></td>
-                        <td><a href="../viewInquilinos/adicionarInquilinos.jsp?id=<%=id%>">Adicionar</a></td>
-                        <td><a href="../viewInquilinos/gerenciarInquilinos.jsp?dbEndereco=<%=dbEndereco%>">Visualizar</a></td>
+
+                        <td colspan="2"><%=cidade%></td>
+                        <td colspan="2"><%=bairro%></td>
+                        <td colspan="2"><%=dbEndereco%></td>
+
+                        <td><a href="../viewInquilinos/gerenciarInquilinos.jsp?dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/estoque.png"></a></td>
+                        
+                        <td><a href="alterarEnderecos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/editar-arquivo.png"></a>
+                            <a href="deletarEnderecos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/botao-apagar.png"></a></td>
+
+                        <td><a href="../viewInquilinos/adicionarInquilinos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/adicionar-ficheiro.png"></a>
+                            <a href="../viewInquilinos/gerenciarInquilinos.jsp?dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/documento.png"></a></td>
+
+                        
                     </tr>
                     <%
                         }

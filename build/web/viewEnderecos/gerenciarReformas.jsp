@@ -26,8 +26,8 @@
             </nav>
         </div>
         <div class="menu">
-            <p class="font"> Página de Gerenciamento dos Endereços <p>
-                <a href="adicionarEnderecos.jsp">Adicionar Endereços</a>
+            <p class="font"> Página de Controle de Reformas <p>
+                <a href="gerenciarEnderecos.jsp">   Gerenciar Endereços   </a>
         </div>
         <div class="table_body">
             <table width="700px" border="1" cellspacing="0">
@@ -37,9 +37,7 @@
                         <th colspan="2"><strong>Bairro</strong></th>
                         <th colspan="2"><strong>Endereço</strong></th>
 
-                        <th><strong>Reformas</strong><br><i>Controlar</i></th>
-                        <th><strong>Alterações</strong><br><i>Editar/Excluir</i></th>
-                        <th><strong>Inquilinos</strong><br><i>Adicionar/Visualizar</i></th>
+                        <th colspan="2"><strong>Reformas</strong></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,15 +73,8 @@
                         <td colspan="2"><%=bairro%></td>
                         <td colspan="2"><%=dbEndereco%></td>
 
-                        <td><a href="../viewInquilinos/gerenciarInquilinos.jsp?dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/estoque.png"></a></td>
-                        
-                        <td><a href="alterarEnderecos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/editar-arquivo.png"></a>
-                            <a href="deletarEnderecos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/botao-apagar.png"></a></td>
-
-                        <td><a href="../viewInquilinos/adicionarInquilinos.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/adicionar-ficheiro.png"></a>
-                            <a href="../viewInquilinos/gerenciarInquilinos.jsp?dbEndereco=<%=dbEndereco%>"><img height="25" width="25" class="btnSize" src="../imagens/documento.png"></a></td>
-
-                        
+                        <td><a href="alterarEnderecos.jsp?id=<%=id%>">Editar</a></td>
+                        <td><a href="deletarEnderecos.jsp?id=<%=id%>">Deletar</a></td>
                     </tr>
                     <%
                         }

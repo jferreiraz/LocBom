@@ -112,7 +112,7 @@
                         </tr>
                         <tr>
                             <td><input id="valor_cad" name="valor" required="required" type="text" placeholder="ex. 20,50"/></td>
-                            <td><input id="data_pag_cad" name="data_pagamento" required="required" type="text" placeholder="ex. 20/05/2023 "/></td>
+                            <td><input id="data_pag_cad" name="data_pagamento" required="required" type="date" placeholder="ex. 20/05/2023 "/></td>
                             <td><input id="pagante_cad" name="pagante" required="required" type="text" placeholder="ex. Carlos Alberto" value="<%=inquilino%>" /></td>
                             <td><input id="recebedor_cad" name="recebedor" type="text" placeholder="ex. Roberto"/></td>
                             <td><input id="descricao_cad" name="descricao" type="text" placeholder="ex. Pago adiantado uma semana"/></td>

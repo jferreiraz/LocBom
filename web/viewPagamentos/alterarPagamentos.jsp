@@ -86,7 +86,7 @@
                     <tbody>
                         <tr><td>Id</td><td><input type="text" class="id_border" name="id_pagamentos" value="<%= id%>" readonly></td><td><%= id%></td></tr>
                         <tr><td>Valor</td><td><input type="text" name="valor" value="<%= valor%>"></td><td><%= valor%></td></tr>
-                        <tr><td>Data de pagamento</td><td><input type="text" name="data_pagamento" value="<%= data_pagamento%>"></td><td><%= data_pagamento%></td></tr>
+                        <tr><td>Data de pagamento</td><td><input type="date" name="data_pagamento" value="<%= data_pagamento%>"></td><td><%= data_pagamento%></td></tr>
                         <tr><td>Pagante</td><td><input type="text" name="pagante" value="<%= pagante%>"></td><td><%= pagante%></td></tr>
                         <tr><td>Recebedor</td><td><input type="text" name="recebedor" value="<%= recebedor%>"></td><td><%= recebedor%></td></tr>
                         <tr><td>Descrição</td><td><input type="text" name="descricao" value="<%= descricao%>"></td><td><%= descricao%></td></tr>

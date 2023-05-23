@@ -92,7 +92,7 @@
                         <tr>
                             <td><input id="nome_inquilino_cad" name="nome_inquilino" required="required" type="text" placeholder="ex. Alberto"/></td>
                             <td><input id="quantidade_pessoas_cad" name="quantidade_pessoas" required="required" type="text" placeholder="ex. 2 "/></td>
-                            <td><input id="data_entrada_cad" name="data_entrada" required="required" type="text" placeholder="ex. 20/03/2022"/></td>
+                            <td><input id="data_entrada_cad" name="data_entrada" required="required" type="date" placeholder="ex. 20/03/2022"/></td>
                             <!--<td><input id="endereco_cad" name="endereco" type="text" placeholder="ex. 8)" value="<//%= endereco%>"/></td> -->
                             <td><select name=endereco id="endereco_cad">
                                     <%                                        while (rs.next()) {

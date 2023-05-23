@@ -86,7 +86,7 @@
                         <tr><td>Id</td><td><input class="id_border" type="text" name="id_inquilinos" value="<%= id%>" readonly></td><td><%= id%> </td></tr>
                         <tr><td>Nome do inquilino</td><td><input type="text" name="nome_inquilino" value="<%= nome_inquilino%>"></td><td><%= nome_inquilino%> </td></tr>
                         <tr><td>Quantidade de pessoas</td><td><input type="text" name="quantidade_pessoas" value="<%= quantidade_pessoas%>"></td><td><%= quantidade_pessoas%> </td></tr>
-                        <tr><td>Data de entrada</td><td><input type="text" name="data_entrada" value="<%= data_entrada%>"></td><td><%= data_entrada%></td></tr>
+                        <tr><td>Data de entrada</td><td><input type="date" name="data_entrada" value="<%= data_entrada%>"></td><td><%= data_entrada%></td></tr>
                        
                         <tr><td>Endereço</td><td><select name="endereco" id="enderecos">
                                     <%                                       
