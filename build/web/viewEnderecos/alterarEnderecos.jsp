@@ -24,10 +24,6 @@
                     alert("Campo endereço não informado");
                     return false;
                 }
-                if (document.formAlterarEndereco.quantidade_apartamentos.value === "") {
-                    alert("Campo de quantidade de apartamentos não informado");
-                    return false;
-                }
 
                 document.formAlterarEndereco.submit();
 
@@ -55,7 +51,6 @@
                 String cidade = "";
                 String bairro = "";
                 String endereco = "";
-                String quantidadeApartamentos = "";
                 String dbId = request.getParameter("id");
 
                 Connection conn = CriarConexao.getConexao();
@@ -67,7 +62,6 @@
                     cidade = rs.getString("cidade");
                     bairro = rs.getString("bairro");
                     endereco = rs.getString("endereco");
-                    quantidadeApartamentos = rs.getString("quantidade_apartamentos");
                 }
 
             %>
@@ -85,7 +79,6 @@
                         <tr><td>Cidade</td><td><input type="text" name="cidade" value="<%= cidade%>"></td><td><%= cidade%></td></tr>
                         <tr><td>Bairro</td><td><input type="text" name="bairro" value="<%= bairro%>"></td><td><%= bairro%></td></tr>
                         <tr><td>Endereço</td><td><input type="text" name="endereco" value="<%= endereco%>"></td><td><%= endereco%></td></tr>
-                        <tr><td>Quantidade de apartamento</td><td><input type="text" name="quantidade_apartamentos" value="<%= quantidadeApartamentos%>"></td><td><%= quantidadeApartamentos%></td></tr>
                         <tr><td colspan="3"><input type="button" value="Alterar" onclick="validarAlteracao()"></td></tr>
                     </tbody>
                 </table>

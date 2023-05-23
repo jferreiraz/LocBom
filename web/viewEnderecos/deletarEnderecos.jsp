@@ -37,7 +37,6 @@
                 String cidade = "";
                 String bairro = "";
                 String endereco = "";
-                String quantidadeApartamentos = "";
                 String dbId = request.getParameter("id");
 
                 Connection conn = CriarConexao.getConexao();
@@ -49,7 +48,6 @@
                     cidade = rs.getString("cidade");
                     bairro = rs.getString("bairro");
                     endereco = rs.getString("endereco");
-                    quantidadeApartamentos = rs.getString("quantidade_apartamentos");
                 }
             %>
             <div class="table_body">
@@ -65,7 +63,6 @@
                         <tr><td><strong>Cidade</strong></td><td><%= cidade%></td></tr>
                         <tr><td><strong>Bairro</strong></td><td><%= bairro%></td></tr>
                         <tr><td><strong>Endereço</strong></td><td><%= endereco%></td></tr>
-                        <tr><td><strong>Quantidade de apartamentos</strong></td><td><%= quantidadeApartamentos%></td></tr>
                         <tr><td colspan="2"><input type="button" value="deletar" onclick="deletar()"></td></tr>
                     </tbody>
                 </table>

@@ -11,7 +11,7 @@ public class EnderecoDAO {
         this.con = con;
     }
     public void adicionar(Endereco e) throws SQLException {
-        String sql = "insert into endereco(cidade,bairro,endereco,quantidade_apartamentos,id_usuario) values (?,?,?,?,?)";
+        String sql = "insert into endereco(cidade,bairro,endereco,id_usuario) values (?,?,?,?,?)";
         
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -19,8 +19,7 @@ public class EnderecoDAO {
             stmt.setString(1, e.getCidade());
             stmt.setString(2, e.getBairro());
             stmt.setString(3, e.getEndereco());
-            stmt.setString(4, e.getQuantidadeApartamentos());
-            stmt.setInt(5, e.getId_usuario());
+            stmt.setInt(4, e.getId_usuario());
             
             stmt.execute();
             stmt.close();
@@ -31,7 +30,7 @@ public class EnderecoDAO {
         }
     }
     public void alterar(Endereco e) throws SQLException {
-        String sql = "UPDATE endereco SET cidade = ?, bairro = ?, endereco = ?, quantidade_apartamentos = ? WHERE id_endereco = ?";
+        String sql = "UPDATE endereco SET cidade = ?, bairro = ?, endereco = ? WHERE id_endereco = ?";
         
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -39,8 +38,7 @@ public class EnderecoDAO {
             stmt.setString(1, e.getCidade());
             stmt.setString(2, e.getBairro());
             stmt.setString(3, e.getEndereco());
-            stmt.setString(4, e.getQuantidadeApartamentos());
-            stmt.setInt(5, e.getIdEndereco());
+            stmt.setInt(4, e.getIdEndereco());
             
             stmt.execute();
             stmt.close();

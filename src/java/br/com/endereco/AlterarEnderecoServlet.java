@@ -30,7 +30,6 @@ public class AlterarEnderecoServlet extends HttpServlet{
             String cidade = request.getParameter("cidade");
             String bairro = request.getParameter("bairro");
             String endereco = request.getParameter("endereco");
-            String quantidadeApartamentos = request.getParameter("quantidade_apartamentos");
             
             Connection con;
             try {
@@ -42,7 +41,6 @@ public class AlterarEnderecoServlet extends HttpServlet{
                 e.setCidade(cidade);
                 e.setBairro(bairro);
                 e.setEndereco(endereco);
-                e.setQuantidadeApartamentos(quantidadeApartamentos);
                 e.setIdEndereco(Integer.valueOf(idEndereco));
 
                 EnderecoDAO dao = new EnderecoDAO(con);
@@ -51,7 +49,6 @@ public class AlterarEnderecoServlet extends HttpServlet{
                 request.setAttribute("cidade", e.getCidade());
                 request.setAttribute("bairro", e.getBairro());
                 request.setAttribute("endereco", e.getEndereco());
-                request.setAttribute("quantidade_apartamentos", e.getQuantidadeApartamentos());
                 request.setAttribute("id_endereco", e.getIdEndereco());
                 
                 request.getRequestDispatcher("gerenciarEnderecos.jsp").forward(request, response);

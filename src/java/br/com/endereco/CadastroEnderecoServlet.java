@@ -28,13 +28,7 @@ public class CadastroEnderecoServlet extends HttpServlet{
             String cidade = request.getParameter("cidade");
             String bairro = request.getParameter("bairro");
             String endereco = request.getParameter("endereco");
-            String quantidadeAptos = request.getParameter("quantidade_apartamentos");
             String id_usuario = (String) session.getAttribute("id_usuario");
-            //int quantidadeApartamentos = Integer.parseInt(request.getParameter("quantidade_apartamentos"));
-            //int quantidadeApartamentos = Integer.parseInt(request.getParameter("quantidade_apartamentos"));
-            //int telefone = Integer.parseInt(request.getParameter(“telefone”));
-            //int quantidadeApartamentos = (int) request.getAttribute("quantidade_apartamentos");
-
             
             Connection con;
             try {
@@ -45,8 +39,6 @@ public class CadastroEnderecoServlet extends HttpServlet{
                 e.setCidade(cidade);
                 e.setBairro(bairro);
                 e.setEndereco(endereco);
-                //e.setQuantidadeApartamentos(quantidadeApartamentos);
-                e.setQuantidadeApartamentos(quantidadeAptos);
                 e.setId_usuario(Integer.valueOf(id_usuario));
 
                 EnderecoDAO dao = new EnderecoDAO(con);
@@ -54,7 +46,6 @@ public class CadastroEnderecoServlet extends HttpServlet{
                 request.setAttribute("cidade", e.getCidade());
                 request.setAttribute("bairro", e.getBairro());
                 request.setAttribute("endereco", e.getEndereco());
-                request.setAttribute("quantidade_apartamentos", e.getQuantidadeApartamentos());
                 request.setAttribute("id_usuario", e.getId_usuario());
                 
                 request.getRequestDispatcher("gerenciarEnderecos.jsp").forward(request, response);

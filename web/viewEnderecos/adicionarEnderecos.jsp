@@ -60,13 +60,11 @@
                             <td><label for="cidade_cad">Cidade</label></td>
                             <td><label for="bairro_cad">Bairro</label></td>
                             <td><label for="endereco_cad">Endereço</label></td>
-                            <td><label for="quantidade_aptos_cad">Quantidade de apartamentos</label></td>
                         </tr>
                         <tr>
                             <td><input id="cidade_cad" name="cidade" required="required" type="text" placeholder="ex. Brasília"/></td>
                             <td><input id="bairro_cad" name="bairro" required="required" type="text" placeholder="ex. Taguatinga Sul "/></td>
                             <td><input id="endereco_cad" name="endereco" required="required" type="text" placeholder="ex. St D Sul QSD 28 casa 12"/></td>
-                            <td><input id="quantidade_aptos_cad" name="quantidade_apartamentos" type="text" placeholder="ex. 8"/></td>
                         </tr>
                         <tr><td colspan="4"><input type="submit" value="Cadastrar" onclick="return validar()"/></td></tr>
                     </tbody>
