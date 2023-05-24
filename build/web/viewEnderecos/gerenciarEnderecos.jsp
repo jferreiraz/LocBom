@@ -27,7 +27,8 @@
         </div>
         <div class="menu">
             <p class="font"> Página de Gerenciamento dos Endereços <p>
-                <a href="adicionarEnderecos.jsp">Adicionar Endereços</a>
+                <a href="adicionarEnderecos.jsp">Adicionar Endereços</a><br>
+                <a href="relatorioEnderecos.jsp">Gerar Relatório de Endereços</a>
         </div>
         <div class="table_body">
             <table width="700px" border="1" cellspacing="0">

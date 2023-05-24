@@ -18,6 +18,19 @@
     </servlet>
     
     <servlet>
+        <servlet-name>CadastroReformaServlet</servlet-name>
+        <servlet-class>br.com.reforma.CadastroReformaServlet</servlet-class> 
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarReformaServlet</servlet-name>
+        <servlet-class>br.com.reforma.AlterarReformaServlet</servlet-class> 
+    </servlet>
+    <servlet>
+        <servlet-name>DeletarReformaServlet</servlet-name>
+        <servlet-class>br.com.reforma.DeletarReformaServlet</servlet-class> 
+    </servlet>
+    
+    <servlet>
         <servlet-name>CadastroEnderecoServlet</servlet-name>
         <servlet-class>br.com.endereco.CadastroEnderecoServlet</servlet-class> 
     </servlet>
@@ -71,6 +84,19 @@
         <servlet-mapping>
         <servlet-name>DeletarLoginServlet</servlet-name>
         <url-pattern>/viewUsuarios/DeletarLogin</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>CadastroReformaServlet</servlet-name>
+        <url-pattern>/viewReformas/CadastroReforma</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarReformaServlet</servlet-name>
+        <url-pattern>/viewReformas/AlterarReforma</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>DeletarReformaServlet</servlet-name>
+        <url-pattern>/viewReformas/DeletarReforma</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>

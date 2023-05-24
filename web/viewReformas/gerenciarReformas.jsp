@@ -7,6 +7,7 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%
     String dbEndereco = request.getParameter("dbEndereco");
+    String idUsuario = (String) session.getAttribute("id_usuario");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html14/loose.dtd">
@@ -14,7 +15,7 @@
     <head> 
         <link rel="stylesheet" type="text/css" href="../ref/style.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Logado</title>
+        <title>Gerenciar Reformas</title>
     </head>
     <body>
         <div class="navegador">
@@ -29,31 +30,65 @@
             </nav>
         </div>
         <div class="menu">
-            <p class="font"> Página de Controle de Reformas <%=dbEndereco%><p>
+            <p class="font"> Página de Controle de Reformas<p>
+                <a href="adicionarReformas.jsp">   Adicionar reformas   </a><br>
                 <a href="../viewEnderecos/gerenciarEnderecos.jsp">   Voltar ao Gerenciar Endereços   </a>
         </div>
         <div class="table_body">
             <table width="700px" border="1" cellspacing="0">
                 <thead>
                     <tr>
-                        <th colspan="2"><strong>ID</strong></th>
-                        <th colspan="2"><strong>Descrição</strong></th>
-                        <th colspan="2"><strong>Valor</strong></th>
-                        <th colspan="2"><strong>Endereço</strong></th>
-                        <th colspan="2"><strong>Id do Usuário</strong></th>
-
-                        <th colspan="2"><strong>Reformas</strong></th>
+                        <th><strong>Endereço</strong></th>
+                        <th><strong>Valor</strong></th>
+                        <th><strong>Descrição</strong></th>
+                        <th><strong>Reformas</strong><br><i>Editar/Remover</i></th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
+
+                        if (dbEndereco != null) {
+
+                            int id = 0;
+                            String descricao = "";
+                            String valor = "";
+
+                            String sql = "SELECT * FROM reformas WHERE id_usuario = \'" + idUsuario + "\' AND endereco= \'" + dbEndereco + "\' ";
+
+                            Connection con;
+                            con = CriarConexao.getConexao();
+                            PreparedStatement stmt = con.prepareStatement(sql);
+                            ResultSet rs = stmt.executeQuery();
+
+                            while (rs.next()) {
+                                id = rs.getInt("id_reformas");
+                                descricao = rs.getString("descricao");
+                                valor = rs.getString("valor");
+                                dbEndereco = rs.getString("endereco");
+                                idUsuario = rs.getString("id_usuario");
+                    %>
+
+                    <tr>
+                        <td><%=dbEndereco%></td>
+                        <td><%=valor%></td>
+                        <td><%=descricao%></td>
+                        <td><a href="alterarReformas.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/logoEditar.png"></a>
+                            <a href="deletarReformas.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/logoRemover.png"></a></td>
+                    </tr>
+                    
+                    <%
+                        }
+                        rs.close();
+                        stmt.close();
+                        con.close();
+
+                    } else {
+
                         int id = 0;
                         String descricao = "";
                         String valor = "";
 
-                        String idUsuario = (String) session.getAttribute("id_usuario");
-
-                        String sql = "SELECT * FROM reformas WHERE id_usuario = \'" + idUsuario + "\' AND endereco= \'" + dbEndereco + "\' ";
+                        String sql = "SELECT * FROM reformas WHERE id_usuario = \'" + idUsuario + "\' ";
 
                         Connection con;
                         con = CriarConexao.getConexao();
@@ -69,21 +104,18 @@
                     %>
 
                     <tr>
-
-                        <td colspan="2"><%=id%></td>
-                        <td colspan="2"><%=descricao%></td>
-                        <td colspan="2"><%=valor%></td>
-                        <td colspan="2"><%=dbEndereco%></td>
-                        <td colspan="2"><%=idUsuario%></td>
-
-                        <td><a href="alterarEnderecos.jsp?id=<%=id%>">Editar</a></td>
-                        <td><a href="deletarEnderecos.jsp?id=<%=id%>">Deletar</a></td>
+                        <td><%=dbEndereco%></td>
+                        <td><%=valor%></td>
+                        <td><%=descricao%></td>
+                        <td><a href="alterarReformas.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/logoEditar.png"></a>
+                            <a href="deletarReformas.jsp?id=<%=id%>"><img height="25" width="25" class="btnSize" src="../imagens/logoRemover.png"></a></td>
                     </tr>
                     <%
                         }
                         rs.close();
                         stmt.close();
                         con.close();
+                    }
                     %>
                 </tbody>
             </table>
