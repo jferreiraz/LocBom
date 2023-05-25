@@ -25,6 +25,7 @@
         </div>
         <div class="menu">
             <p class="font"> Página  de Gerenciamento dos Usuários <p>
+            <a href="relatorioUsuarios.jsp">Gerar Relatório de Usuários</a>
         </div>
         <div class="table_body">
             <table width="700px" border="1" cellspacing="0">

@@ -25,7 +25,8 @@
         </div>
         <div class="menu">
             <p class="font"> Página de Gerenciamento dos Pagamentos <p>
-                <a href="adicionarPagamentos.jsp">Adicionar Pagamentos</a>
+                <a href="adicionarPagamentos.jsp">Adicionar Pagamentos</a><br>
+                <a href="relatorioPagamentos.jsp">Gerar Relatório de Pagamentos</a>
         </div>
 
         <div class="table_body">

@@ -25,7 +25,8 @@
         </div>
         <div class="menu">
             <p class="font"> Página de Gerenciamento dos Inquilinos <p>
-                <a href="adicionarInquilinos.jsp">Adicionar Inquilinos</a>
+                <a href="adicionarInquilinos.jsp">Adicionar Inquilinos</a><br>
+                <a href="relatorioInquilinos.jsp">Gerar Relatório de Inquilinos</a>
         </div>
         <div class="table_body">
             <table width="700px" border="1" cellspacing="0">

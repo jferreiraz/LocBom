@@ -32,6 +32,7 @@
         <div class="menu">
             <p class="font"> Página de Controle de Reformas<p>
                 <a href="adicionarReformas.jsp">   Adicionar reformas   </a><br>
+                <a href="relatorioReformas.jsp">Gerar Relatório de Reformas</a><br>
                 <a href="../viewEnderecos/gerenciarEnderecos.jsp">   Voltar ao Gerenciar Endereços   </a>
         </div>
         <div class="table_body">

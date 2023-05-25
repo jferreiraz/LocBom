@@ -1,4 +1,3 @@
-<%//@page import="utilerias.Conversiones , java.util.*"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="br.com.endereco.Endereco"%>
 <%@page import="java.sql.ResultSet"%>

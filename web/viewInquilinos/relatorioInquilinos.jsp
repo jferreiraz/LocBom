@@ -1,5 +1,5 @@
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="br.com.endereco.Endereco"%>
+<%@page import="br.com.inquilino.Inquilino"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -7,7 +7,7 @@
 <%@page contentType="application-/vnd.ms-excel"%>
 
 <%
-    String nomeArquivo = "relatorioEnderecos.xls";
+    String nomeArquivo = "relatorioInquilinos.xls";
     response.setHeader("Content-Disposition","attachment;filename="+nomeArquivo);
 %>
 
@@ -20,22 +20,24 @@
             <table width="700px" border="1" cellspacing="0">
                 <thead>
                     <tr>
-                        <th><strong>Id Endereço</strong></th>
-                        <th><strong>Estado</strong></th>
-                        <th><strong>Bairro</strong></th>
+                        <th><strong>Id Inquilino</strong></th>
+                        <th><strong>Nome Inquilino</strong></th>
+                        <th><strong>Apartamento</strong></th>
+                        <th><strong>Data Entrada</strong></th>
                         <th><strong>Endereço</strong></th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
                         int id = 0;
-                        String cidade = "";
-                        String bairro = "";
-                        String dbEndereco = "";
+                        String nome_inquilino = "";
+                        String apartamento = "";
+                        String data_entrada = "";
+                        String endereco = "";
 
                         String idUsuario = (String) session.getAttribute("id_usuario");
 
-                        String sql = "SELECT * FROM endereco where id_usuario = \'" + idUsuario + "\'  ";
+                        String sql = "SELECT * FROM inquilinos where id_usuario = \'" + idUsuario + "\'  ";
 
                         Connection con;
                         con = CriarConexao.getConexao();
@@ -43,17 +45,18 @@
                         ResultSet rs = stmt.executeQuery();
 
                         while (rs.next()) {
-                            id = rs.getInt("id_endereco");
-                            cidade = rs.getString("cidade");
-                            bairro = rs.getString("bairro");
-                            dbEndereco = rs.getString("endereco");
-
+                            id = rs.getInt("id_inquilinos");
+                            nome_inquilino = rs.getString("nome_inquilino");
+                            apartamento = rs.getString("apartamento");
+                            data_entrada = rs.getString("data_entrada");
+                            endereco = rs.getString("endereco");        
                     %>
                     <tr>
                         <td><%=id%></td>
-                        <td><%=cidade%></td>
-                        <td><%=bairro%></td>
-                        <td><%=dbEndereco%></td>   
+                        <td><%=nome_inquilino%></td>
+                        <td><%=apartamento%></td>
+                        <td><%=data_entrada%></td> 
+                        <td><%=endereco%></td> 
                     </tr>
                     <%
                         }
