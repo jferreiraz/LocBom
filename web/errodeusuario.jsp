@@ -1,45 +1,32 @@
 <%@page isErrorPage="true" %>
 <%@page import="java.util.Enumeration" %>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html14/loose.dtd">
-<html>
-    <head> 
-        <style type="text/css">
-            body{ background-color:#fff;}
-            #cabecalho{
-                background-color:#fff;
-                width: 800px;
-                height: 100px;
-            }
-            #corpo{
-                background-color: #fff;
-                width:800px;
-                height:450px;
-            }
-            #rodape{
-                background-color: #fff;
-                width: 800px;
-                height: 100px;
-            }
-        </style>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Error</title>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="ref/styleLogin.css" />
+        <title>Página de erro de usuário</title>
     </head>
     <body>
-        <div align="center">
-            <div id="cabecalho"></div>
-            <div id="corpo">
-                
-                <img src="imagens/erro1.jpg"/>
-                <hr/>
-                    <h3>Email e senha incorretos </h3><br/>
-                <br/>
-                <hr/>
-                <a href="login.jsp">Tentar novamente</a><a href="index.jsp">Cadastre-se</a>
-                
+        <div class="main-login">
+            <div class="left-login">
+                <h1>Sistema LocBom, <br> O melhor para o melhor!</h1>
+                <img src="imagens/wrongPassword.svg" class="left-login-image" alt="walk">
             </div>
-            <div id="rodape"></div>
+            <form name="formLogin" method="post" action="Login">
+                <div class="right-login">
+                    <div class="card-login">
+                        <div class="textfield">
+                            <h1>Email e/ou senha inválidos</h1>
+                            <label for="cadastro">Cadastre-se</label>
+                            <a href="index.jsp">Cadastro</a>
+                        </div>
+                        <div class="textfield">
+                            <label for="login">Tente Novamente</label> 
+                            <a href="login.jsp">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </body>
 </html>

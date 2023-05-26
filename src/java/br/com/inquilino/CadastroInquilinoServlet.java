@@ -1,6 +1,5 @@
 package br.com.inquilino;
 
-import br.com.endereco.Endereco;
 import br.com.conexao.CriarConexao; 
 
 import java.io.IOException;
@@ -39,7 +38,6 @@ public class CadastroInquilinoServlet extends HttpServlet{
                 con = CriarConexao.getConexao();
 
                 Inquilino i = new Inquilino();
-                //Endereco e = new Endereco();
                 i.setNome_inquilino(nome_inquilino);
                 i.setApartamento(apartamento);
                 i.setData_entrada(data_entrada);
@@ -48,7 +46,6 @@ public class CadastroInquilinoServlet extends HttpServlet{
 
                 InquilinoDAO dao = new InquilinoDAO(con);
                 dao.adicionar(i);
-                //dao.adicionarEndereco();
                 request.setAttribute("nome_inquilino", i.getNome_inquilino());
                 request.setAttribute("apartamento", i.getApartamento());
                 request.setAttribute("data_entrada", i.getData_entrada());

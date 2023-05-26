@@ -30,7 +30,7 @@ public class AlterarEnderecoServlet extends HttpServlet{
             String cidade = request.getParameter("cidade");
             String bairro = request.getParameter("bairro");
             String endereco = request.getParameter("endereco");
-            
+
             Connection con;
             try {
             

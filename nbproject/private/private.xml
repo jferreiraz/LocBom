@@ -8,6 +8,7 @@
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/imagens/logoEditar.png</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/imagens/index.svg</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewEnderecos/relatorioEnderecos.jsp</file>
+            <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewUsuarios/relatorioUsuarios.jsp</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewUsuarios/gerenciarUsuarios.jsp</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/src/java/br/com/reforma/ReformaDAO.java</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/src/java/br/com/endereco/DeletarEnderecoServlet.java</file>
@@ -16,7 +17,6 @@
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/imagens/logoRemover.png</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/src/java/br/com/pagamento/Pagamento.java</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewReformas/alterarReformas.jsp</file>
-            <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/WEB-INF/glassfish-web.xml</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewPagamentos/gerenciarPagamentos.jsp</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/src/java/br/com/reforma/AlterarReformaServlet.java</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/src/java/br/com/pagamento/CadastroPagamentoServlet.java</file>
@@ -30,12 +30,14 @@
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/index.jsp</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/src/java/br/com/reforma/CadastroReformaServlet.java</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewInquilinos/deletarInquilinos.jsp</file>
+            <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewInquilinos/relatorioInquilinos.jsp</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/src/java/LoginControllers.java</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewEnderecos/deletarEnderecos.jsp</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/src/java/br/com/endereco/CadastroEnderecoServlet.java</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewPagamentos/deletarPagamentos.jsp</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/imagens/rent.svg</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewPagamentos/alterarPagamentos.jsp</file>
+            <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewPagamentos/relatorioPagamentos.jsp</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/imagens/LocBomLogo.png</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewReformas/gerenciarReformas.jsp</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/WEB-INF/web.xml</file>
@@ -44,6 +46,7 @@
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/src/java/br/com/endereco/Endereco.java</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/src/java/br/com/login/UsuarioDAO.java</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/src/java/br/com/pagamento/DeletarPagamentoServlet.java</file>
+            <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewReformas/relatorioReformas.jsp</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/src/java/br/com/inquilino/InquilinoDAO.java</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/login.jsp</file>
             <file>file:/D:/Usuários/Documents/NetBeansProjects/LocBom/web/viewUsuarios/alterarUsuarios.jsp</file>

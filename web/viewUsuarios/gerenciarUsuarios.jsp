@@ -43,10 +43,12 @@
                     String nome = "";
                     String email = "";
                     String senha = "";
+                    
+                    String idUsuario = (String) session.getAttribute("id_usuario");
 
                     Connection conn = CriarConexao.getConexao();
                     Statement stmt = conn.createStatement();
-                    ResultSet rs = stmt.executeQuery("select * from login");
+                    ResultSet rs = stmt.executeQuery("select * from login WHERE id_usuario = \'" + idUsuario + "\' ");
                     while (rs.next()) {
                         id = rs.getInt("id_usuario");
                         nome = rs.getString("nome");

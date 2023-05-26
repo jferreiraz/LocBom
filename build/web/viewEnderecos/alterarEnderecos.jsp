@@ -1,3 +1,4 @@
+<%@page import="br.com.inquilino.Inquilino"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="br.com.login.Usuario"%>
 <%@page import="java.sql.ResultSet"%>
@@ -56,7 +57,8 @@
                 Connection conn = CriarConexao.getConexao();
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("select * from endereco where id_endereco =\'" + dbId + "\' ");
-
+                //ResultSet rs = stmt.executeQuery("select endereco.id_endereco, endereco.cidade, endereco.bairro, endereco.endereco, endereco.id_usuario, inquilinos.id_inquilinos from endereco INNER JOIN inquilinos ON endereco.endereco = inquilinos.endereco where endereco.id_endereco = 1 and endereco.id_usuario = 10 and inquilinos.id_usuario = 10;");
+                
                 while (rs.next()) {
                     idEndereco = rs.getInt("id_endereco");
                     cidade = rs.getString("cidade");

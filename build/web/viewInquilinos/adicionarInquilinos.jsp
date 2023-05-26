@@ -41,7 +41,7 @@
                     return false;
                 }
 
-                if (apartamento == "") {
+                if (apartamento_cad == "") {
                     alert("Preencha o campo de apartamento!");
                     frmCadastrarInquilino.apartamento_cad.focus();
                     return false;
