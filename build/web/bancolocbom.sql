@@ -15,16 +15,14 @@ CREATE TABLE `inquilinos` (
   `apartamento` varchar(45) NOT NULL,
   `data_entrada` varchar(45) NOT NULL,
   `endereco` varchar(45) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_endereco` int(11) NOT NULL
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB;
 
 CREATE TABLE `login` (
   `id_usuario` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `email` varchar(45) NOT NULL,
   `nome` varchar(45) NOT NULL,
-  `senha` varchar(45) NOT NULL,
-  `tipo_usuario` varchar(45) NOT NULL
+  `senha` varchar(45) NOT NULL
 ) ENGINE=InnoDB;
 
 CREATE TABLE `pagamentos` (
@@ -33,8 +31,7 @@ CREATE TABLE `pagamentos` (
   `data_pagamento` varchar(45) NOT NULL,
   `descricao` varchar(45) DEFAULT NULL,
   `inquilino` varchar(45) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_inquilinos` int(11) NOT NULL
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB;
 
 CREATE TABLE `reformas` (
