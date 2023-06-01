@@ -10,10 +10,10 @@
     String enderecoTitulo = "";
 
     if (dbEndereco == null) {
-        sql = "select * from reformas";
+        sql = "select * from endereco";
         enderecoTitulo = "";
     } else {
-        sql = "select * from reformas where endereco =\'" + dbEndereco + "\' ";
+        sql = "select * from endereco where endereco =\'" + dbEndereco + "\' ";
         enderecoTitulo = "no" + dbEndereco;
     }
 
@@ -27,7 +27,7 @@
     "http://www.w3.org/TR/html14/loose.dtd">
 <html>
     <head>
-        <title>Página de cadastro dos Endereços</title>
+        <title>PÃ¡gina de cadastro dos EndereÃ§os</title>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <link rel="stylesheet" type="text/css" href="../ref/style.css" />
         <script type="text/javascript">
@@ -43,16 +43,16 @@
                 }
 
                 if (endereco_cad == "") {
-                    alert("Preencha o endereço!");
+                    alert("Preencha o endereÃ§o!");
                     frmCadastrarEndereco.endereco_cad.focus();
                     return false;
                 }
                 if (descricao_cad == "") {
-                    alert("Preencha o campo de descrição!");
+                    alert("Preencha o campo de descriÃ§Ã£o!");
                     frmCadastrarEndereco.descricao_cad.focus();
                     return false;
                 } else {
-                    alert("Cadastro de endereço realizado com sucesso! ");
+                    alert("Cadastro de endereÃ§o realizado com sucesso! ");
                     return false;
                 }
         </script>
@@ -68,7 +68,7 @@
             </nav>
         </div>
         <div class="menu">
-            <p class="font">Adição de Reformas <br><i><%=enderecoTitulo%></i><p>
+            <p class="font">AdiÃ§Ã£o de Reformas <br><i><%=enderecoTitulo%></i><p>
         </div>
         <form name="frmCadastrarEndereco" action="CadastroReforma" method="post">
 
@@ -82,8 +82,8 @@
                     <tbody>
                         <tr>
                             <td><label for="valor_cad">Valor do pagamento</label></td>
-                            <td><label for="descricao_cad">Descrição</label></td>
-                            <td><label for="endereco_cad">Endereço</label></td>
+                            <td><label for="descricao_cad">DescriÃ§Ã£o</label></td>
+                            <td><label for="endereco_cad">EndereÃ§o</label></td>
                         </tr>
                         <tr>
                             <td><input id="valor_cad" name="valor" required="required" type="text" placeholder="ex. 20,50"/></td>
