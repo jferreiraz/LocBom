@@ -50,7 +50,7 @@ public class AlterarReformaServlet extends HttpServlet{
                 request.setAttribute("descricao", r.getDescricao());
                 request.setAttribute("id_reformas", r.getId_reformas());
                 
-                request.getRequestDispatcher("gerenciarReformas.jsp/").forward(request, response);
+                request.getRequestDispatcher("gerenciarReformas.jsp").forward(request, response);
 
             } catch (SQLException e) {
                 e.printStackTrace();
