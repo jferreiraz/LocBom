@@ -39,6 +39,5 @@ CREATE TABLE `reformas` (
   `id_usuario` int(11) NOT NULL,
   `descricao` varchar(45) DEFAULT NULL,
   `valor` double NOT NULL,
-  `endereco` varchar(45) NOT NULL,
-  `id_endereco` int(11) NOT NULL
+  `endereco` varchar(45) NOT NULL
 ) ENGINE=InnoDB;
